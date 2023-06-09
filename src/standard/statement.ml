@@ -66,7 +66,7 @@ type descr =
   | Antecedent of term
   | Consequent of term
 
-  | Include of string
+  | Include of [ `File of string | `Contents of string * string ]
   | Set_logic of string
 
   | Get_info of string
@@ -274,8 +274,8 @@ let rec print_descr fmt = function
   | Consequent t ->
     Format.fprintf fmt "@[<hov 2>consequent:@ %a@]" Term.print t
 
-  | Include f ->
-    Format.fprintf fmt "@[<hov 2>include:@ %s@]" f
+  | Include (`File _ | `Contents _ as f) ->
+    Format.fprintf fmt "@[<hov 2>include-file:@ %s@]" (Misc.filename_of_input f)
   | Set_logic s ->
     Format.fprintf fmt "@[<hov 2>set-logic:@ %s@]" s
 
@@ -516,9 +516,11 @@ let funs_def_rec ?loc l =
     ) l in
   mk_defs ?loc ~recursive:true contents
 
+let import_raw ?loc ~filename s = mk ?loc (Include (`Contents (filename, s)))
+
 
 (* Wrappers for Zf *)
-let import ?loc s = mk ?loc (Include s)
+let import ?loc s = mk ?loc (Include (`File s))
 
 let defs ?loc ?attrs l =
   group_defs ?loc ?attrs ~recursive:true l
@@ -558,7 +560,7 @@ let data ?loc ?attrs l =
 (* Wrappers for tptp *)
 let include_ ?loc s l =
   let attrs = List.map Term.const l in
-  mk ?loc ~attrs (Include s)
+  mk ?loc ~attrs (Include (`File s))
 
 let tptp ?loc ?annot kind id role body =
   let attrs =

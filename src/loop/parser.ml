@@ -329,7 +329,7 @@ module Make(State : State.S) = struct
         let file = State.get State.logic_file st in
         st, `Gen (merge, wrap_parser ~file (Gen.of_list l))
       (* TODO: filter the statements by passing some options *)
-      | { S.descr = S.Include file; _ } ->
+      | { S.descr = S.Include (`File file); _ } ->
         let logic_file = State.get State.logic_file st in
         let loc = { Dolmen.Std.Loc.file = logic_file.loc; loc = c.loc; } in
         let language = logic_file.lang in
@@ -353,6 +353,13 @@ module Make(State : State.S) = struct
                 st, `Gen (merge, wrap_parser ~file:new_logic_file (gen_of_llist l))
             end
         end
+      | { S.descr = S.Include (`Contents (filename, s)); _} ->
+        let logic_file = State.get State.logic_file st in
+        let language = logic_file.lang in
+        let lang, file_loc, l = Logic.parse_raw_lazy ?language ~filename s in
+        let new_logic_file = { logic_file with loc = file_loc; lang = Some lang } in
+        let st = set_logic_file st new_logic_file in
+        st, `Gen (merge, wrap_parser ~file:new_logic_file (gen_of_llist l))
       | _ -> (st, `Ok)
     in
     ret

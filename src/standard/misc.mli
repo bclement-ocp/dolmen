@@ -72,17 +72,17 @@ val foldn : int -> ('a -> 'a) -> 'a -> 'a
 (** {2 Lexbuf helpers} *)
 
 val filename_of_input :
-  [ `Stdin | `File of string | `Contents of string * string ] ->
+  [< `Stdin | `File of string | `Contents of string * string ] ->
   string
 (** Filename string of an input. *)
 
 val filename_of_input_source :
-  [ `Stdin | `File of string | `Raw of string * string ] ->
+  [< `Stdin | `File of string | `Raw of string * string ] ->
   string
 (** Filename string of an input source. *)
 
 val mk_lexbuf :
-  [ `Stdin | `File of string | `Contents of string * string ] ->
+  [< `Stdin | `File of string | `Contents of string * string ] ->
   Lexing.lexbuf * (unit -> unit)
 (** Returns the lexbuf associetd with the given file or stdin,
     with the correct filename, together with a function to close

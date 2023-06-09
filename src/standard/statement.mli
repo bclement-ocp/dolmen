@@ -103,7 +103,7 @@ type descr =
   | Consequent of term
   (** Add the given proposition on the right of the current sequent.*)
 
-  | Include of string
+  | Include of [ `File of string | `Contents of string * string ]
   (** File include, qualified include paths, if any, are stored in the attribute. *)
 
   | Set_logic of string

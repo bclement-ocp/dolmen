@@ -87,6 +87,12 @@ module type Logic = sig
   (** Import directive. Same as [include_] but without filtering on the
       statements to import. *)
 
+  val import_raw : ?loc:location -> filename:string -> string -> t
+  (** Import directive. Same as [import], but the contents of the file is
+      provided as a string. 
+      
+      @since 0.9 *)
+
   val include_ : ?loc:location -> string -> id list -> t
   (** Include directive. [include file l] means to include in the current scope
       the directives from file [file] that appear in [l]. If [l] is the empty list,
