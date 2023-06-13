@@ -586,14 +586,14 @@ let in_interval ?loc ?lb ?rb t =
   let t =
     match lb, rb with
     | Some (lb, ls), Some (rb, rs) ->
-      and_ ?loc [lt_or_leq ls lb t; lt_or_leq rs t rb]
+      [lt_or_leq ls lb t; lt_or_leq rs t rb]
     | Some (lb, ls), None ->
-      lt_or_leq ls lb t
+      [lt_or_leq ls lb t]
     | None, Some (rb, rs) ->
-      lt_or_leq rs t rb
-    | None, None -> true_ ?loc ()
+      [lt_or_leq rs t rb]
+    | None, None -> []
   in
-  unary (builtin In_interval) ?loc t
+  nary (builtin In_interval) ?loc t
 
 (* {2 Wrappers for dimacs} *)
 
