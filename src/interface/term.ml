@@ -305,7 +305,7 @@ module type Logic = sig
 
   (** {3 Triggers} *)
 
-  val in_interval : ?loc:location -> t -> (t * bool) -> (t * bool) -> t
+  val in_interval : ?loc:location -> ?lb:(t * bool) -> ?rb:(t * bool) -> t -> t
   (** Create a predicate for whether a term is within the given bounds
       (each bound is represented by a term which is tis value and a boolean
       which specifies whether it is strict or not). *)
@@ -681,7 +681,7 @@ module type Ae_Base = sig
   val distinct : t list -> t
   (** Distinct constraints on terms. *)
 
-  val in_interval : t -> bool * bool -> t -> t -> t
+  val in_interval : t -> t -> t -> t
   (** Semantic trigger: "in interval" check. *)
 
   val maps_to : term_var -> t -> t

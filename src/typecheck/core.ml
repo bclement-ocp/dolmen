@@ -115,10 +115,10 @@ module Ae = struct
           )
 
       (* Semantic triggers *)
-      | Type.Builtin (Ast.In_interval (b1, b2)) ->
+      | Type.Builtin (Ast.In_interval) ->
         Type.builtin_term (Base.term_app3_ast (module Type) env s
                  (fun _ast _a1 _a2 _a3 ->
-                    T.in_interval _a1 (b1, b2) _a2 _a3))
+                    T.in_interval _a1 _a2 _a3))
 
       | Type.Builtin Ast.Maps_to ->
         Type.builtin_term (
