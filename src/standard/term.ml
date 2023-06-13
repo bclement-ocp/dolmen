@@ -49,7 +49,7 @@ type builtin =
   | Record_access       (* record operations *)
 
   | Maps_to
-  | In_interval of bool * bool
+  | In_interval
   | Check | Cut         (* alt-ergo builtins *)
 
   | Sexpr               (* smtlib builtin for s-exprs *)
@@ -145,9 +145,7 @@ let builtin_to_string = function
   | Record_with -> "record_with"
   | Record_access -> "."
   | Maps_to -> "↦"
-  | In_interval (b, b') ->
-    let bracket = function true -> "]" | false -> "[" in
-    Printf.sprintf "in_interval%s%s" (bracket b) (bracket (not b'))
+  | In_interval -> "in_interval"
   | Check -> "check"
   | Cut -> "cut"
   | Sexpr -> "sexpr"
@@ -581,9 +579,21 @@ let maps_to ?loc id t =
   let a = const ?loc id in
   binary (builtin Maps_to) ?loc a t
 
-let in_interval ?loc t (lb, ls) (rb, rs) =
-  tertiary (builtin (In_interval (ls, rs))) ?loc t lb rb
-
+let in_interval ?loc ?lb ?rb t =
+  let lt_or_leq strict a b =
+    if strict then lt ?loc a b else leq ?loc a b
+  in
+  let t =
+    match lb, rb with
+    | Some (lb, ls), Some (rb, rs) ->
+      and_ ?loc [lt_or_leq ls lb t; lt_or_leq rs t rb]
+    | Some (lb, ls), None ->
+      lt_or_leq ls lb t
+    | None, Some (rb, rs) ->
+      lt_or_leq rs t rb
+    | None, None -> true_ ?loc ()
+  in
+  unary (builtin In_interval) ?loc t
 
 (* {2 Wrappers for dimacs} *)
 

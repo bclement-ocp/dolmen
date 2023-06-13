@@ -409,9 +409,18 @@ trigger:
 lexpr_or_dom:
   | e=lexpr
     { e }
+  | e=lexpr IN sq QM COMMA QM sq
+    { let loc = L.mk_pos $startpos $endpos in
+      T.in_interval ~loc e }
+  | e=lexpr IN ls=sq lb=bound COMMA QM sq
+    { let loc = L.mk_pos $startpos $endpos in
+      T.in_interval ~loc ~lb:(lb, not ls) e }
+  | e=lexpr IN sq QM COMMA rb=bound rs=sq
+    { let loc = L.mk_pos $startpos $endpos in
+      T.in_interval ~loc ~rb:(rb, rs) e }
   | e=lexpr IN ls=sq lb=bound COMMA rb=bound rs=sq
     { let loc = L.mk_pos $startpos $endpos in
-      T.in_interval ~loc e (lb, not ls) (rb, rs) }
+      T.in_interval ~loc ~lb:(lb, not ls) ~rb:(rb, rs) e }
   | id=raw_ident MAPS_TO e=lexpr
     { let loc = L.mk_pos $startpos $endpos in
       T.maps_to ~loc (id I.term) e }
@@ -423,10 +432,6 @@ sq:
     { false }
 
 bound:
-  | QM
-    { let loc = L.mk_pos $startpos $endpos in
-      let v = I.mk I.term "?" in
-      T.const ~loc v }
   | s=ID
   | s=QM_ID
     { let loc = L.mk_pos $startpos $endpos in

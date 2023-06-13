@@ -24,7 +24,7 @@ type _ t += | Unit | Univ
 type _ t += Coercion
 
 type _ t +=
-  | In_interval of bool * bool
+  | In_interval
   | Maps_to
 
 (* Boolean builtins *)

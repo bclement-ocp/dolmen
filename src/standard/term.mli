@@ -125,7 +125,7 @@ type builtin =
 
   | Maps_to
   (** Mapping; used in Alt-ergo triggers. *)
-  | In_interval of bool * bool
+  | In_interval
   (** Interval check; used in Alt-ergo triggers *)
   | Check
   (** Similar to cut, but does not introduce the proved term into the axioms. *)
@@ -167,7 +167,7 @@ type binder =
   *)
   | Let_par
   (** Similar to [Let_seq]; except that the list of bindings should be considered all
-      bound at the same time/level/scope. 
+      bound at the same time/level/scope.
       More precisely, for [Let_seq], the list of bindings is to be understood
       sequentially (i.e. [Let_seq (b1 :: b2 ...)] is semantically the same as
       [Let_seq b1 (Let_seq b2 (..))]. For [Let_par], the list of bindings all
