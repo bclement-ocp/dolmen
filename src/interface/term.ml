@@ -305,7 +305,7 @@ module type Logic = sig
 
   (** {3 Triggers} *)
 
-  val in_interval : ?loc:location -> t -> t * bool -> t * bool -> t
+  val in_interval : ?loc:location -> t -> (t * bool) -> (t * bool) -> t
   (** Create a predicate for whether a term is within the given bounds
       (each bound is represented by a term which is tis value and a boolean
       which specifies whether it is strict or not). *)
@@ -644,9 +644,6 @@ module type Ae_Base = sig
 
   type term_var
   (** The type of term variables *)
-
-  type ty_var
-  (** The type of type variables *)
 
   val void : t
   (** The only value of type unit. *)
