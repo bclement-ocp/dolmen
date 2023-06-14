@@ -117,50 +117,48 @@ module Ae = struct
 
       (* Semantic triggers *)
       | Type.Builtin (Ast.In_interval (b1, b2)) ->
-          let recognize_special_bound (t : Ast.t) (ty : Ty.t) =
+          let recognize_special_bound (t : Ast.t) =
             match t.term with
             | Symbol { name = Simple "?"; _ } -> true, None
             | Symbol { name = Simple str; _ } ->
                 if String.length str > 0 && String.sub str 0 1 = "?" then
-                  let v = Type.T.Var.mk str ty in
-                  false, Some v
+                  false, Some t
                 else
                   false, None
             | _ -> false, None
           in
-          let inequality ~strict ~lower ty =
+          let inequality ~strict ~lower =
             match strict, lower with
-            | true,  true  -> if ty = Ty.int then T.Int.lt else T.Real.lt
-            | false, true  -> if ty = Ty.int then T.Int.le else T.Real.le
-            | true, false  -> if ty = Ty.int then T.Int.gt else T.Real.gt
-            | false, false -> if ty = Ty.int then T.Int.ge else T.Real.ge
+            | true,  true  -> Ast.lt
+            | false, true  -> Ast.leq
+            | true, false  -> Ast.gt
+            | false, false -> Ast.geq
           in
           Type.builtin_term (Base.make_op3 (module Type) env s
             @@ fun _ast (t, t1, t2) ->
-              let t = Type.parse_term env t in
-              let ty = Type.T.ty t in
-              let is_omitted1, var1 = recognize_special_bound t1 ty in
-              let is_omitted2, var2 = recognize_special_bound t2 ty in
+              let loc = t.loc in
+              let is_omitted1, var1 = recognize_special_bound t1 in
+              let is_omitted2, var2 = recognize_special_bound t2 in
               let res =
                 match is_omitted1, is_omitted2 with
-                | true, true -> T._true
+                | true, true -> Ast.true_ ~loc ()
                 | true, false ->
-                    let t2 = Type.parse_term env t2 in
-                    inequality ~strict:b2 ~lower:false ty t2 t
+                    inequality ~strict:b2 ~lower:false ~loc t2 t
                 | false, true ->
-                    let t1 = Type.parse_term env t1 in
-                    inequality ~strict:b1 ~lower:true ty t1 t
+                    inequality ~strict:b1 ~lower:true ~loc t1 t
                 | false, false ->
-                    let t1 = Type.parse_term env t1 in
-                    let t2 = Type.parse_term env t2 in
-                    let i1 = inequality ~strict:b1 ~lower:true ty t1 t in
-                    let i2 = inequality ~strict:b2 ~lower:false ty t2 t in
-                    T._and [i1; i2]
+                    let i1 = inequality ~strict:b1 ~lower:true ~loc t1 t in
+                    let i2 = inequality ~strict:b2 ~lower:false ~loc t2 t in
+                    Ast.and_ ~loc [i1; i2]
               in
               let res =
-                match var1 with Some v -> T.ex ([], [v]) res | None -> res
+                match var1 with
+                | Some v -> Ast.exists ~loc [v] res
+                | None -> res
               in
-              match var2 with Some v -> T.ex ([], [v]) res | None -> res
+              match var2 with
+              | Some v -> Ast.exists [v] res |> Type.parse_term env
+              | None -> res |> Type.parse_term env
           )
 
       | Type.Builtin Ast.Maps_to ->
