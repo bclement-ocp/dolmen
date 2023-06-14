@@ -117,7 +117,7 @@ module Ae = struct
 
       (* Semantic triggers *)
       | Type.Builtin (Ast.In_interval (b1, b2)) ->
-          let recognize_special_bound (t : Ast.t) ty =
+          let recognize_special_bound ast (t : Ast.t) ty =
             match t.term with
             | Symbol { name = Simple "?"; _ } -> true, None
             | Symbol { name = Simple str; _ } ->
@@ -125,8 +125,10 @@ module Ae = struct
                   let t =
                     if ty = Ty.int then
                       Ast.colon ~loc:t.loc t (Ast.ty_int ~loc:t.loc ())
-                    else
+                    else if ty = Ty.real then
                       Ast.colon ~loc:t.loc t (Ast.ty_real ~loc:t.loc ())
+                    else
+                      assert false
                   in
                   false, Some t
                 else
@@ -140,15 +142,18 @@ module Ae = struct
             | true, false  -> Ast.gt
             | false, false -> Ast.geq
           in
+          (* The ternary operator in_interval is replaced by two inequalities.meta         We also bind the variables of the form ?id. *)
           Type.builtin_term (Base.make_op3 (module Type) env s
-            @@ fun _ast (t, t1, t2) ->
+            @@ fun ast (t, t1, t2) ->
               let ty = Type.parse_term env t |> Type.T.ty in
-              let is_omitted1, var1 = recognize_special_bound t1 ty in
-              let is_omitted2, var2 = recognize_special_bound t2 ty in
+              let is_omitted1, var1 = recognize_special_bound ast t1 ty in
+              let is_omitted2, var2 = recognize_special_bound ast t2 ty in
               let loc = t.loc in
               let res =
                 match is_omitted1, is_omitted2 with
-                | true, true -> Ast.true_ ~loc ()
+                | true, true ->
+                    (* This case occurs when the two bounds are infinity. *)
+                    Ast.true_ ~loc ()
                 | true, false ->
                     inequality ~strict:b2 ~lower:false ~loc t2 t
                 | false, true ->
@@ -165,7 +170,7 @@ module Ae = struct
               in
               match var2 with
               | Some v -> Ast.exists [v] res |> Type.parse_term env
-              | None -> res |> Type.parse_term env
+              | None -> Type.parse_term env res
           )
 
       | Type.Builtin Ast.Maps_to ->
