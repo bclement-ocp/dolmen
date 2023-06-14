@@ -681,7 +681,7 @@ module type Ae_Base = sig
   val distinct : t list -> t
   (** Distinct constraints on terms. *)
 
-  val in_interval : t -> t -> t -> t
+  val in_interval : t list -> t
   (** Semantic trigger: "in interval" check. *)
 
   val maps_to : term_var -> t -> t
