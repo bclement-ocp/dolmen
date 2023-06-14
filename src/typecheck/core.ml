@@ -117,11 +117,17 @@ module Ae = struct
 
       (* Semantic triggers *)
       | Type.Builtin (Ast.In_interval (b1, b2)) ->
-          let recognize_special_bound (t : Ast.t) =
+          let recognize_special_bound (t : Ast.t) ty =
             match t.term with
             | Symbol { name = Simple "?"; _ } -> true, None
             | Symbol { name = Simple str; _ } ->
                 if String.length str > 0 && String.sub str 0 1 = "?" then
+                  let t =
+                    if ty = Ty.int then
+                      Ast.colon ~loc:t.loc t (Ast.ty_int ~loc:t.loc ())
+                    else
+                      Ast.colon ~loc:t.loc t (Ast.ty_real ~loc:t.loc ())
+                  in
                   false, Some t
                 else
                   false, None
@@ -136,9 +142,10 @@ module Ae = struct
           in
           Type.builtin_term (Base.make_op3 (module Type) env s
             @@ fun _ast (t, t1, t2) ->
+              let ty = Type.parse_term env t |> Type.T.ty in
+              let is_omitted1, var1 = recognize_special_bound t1 ty in
+              let is_omitted2, var2 = recognize_special_bound t2 ty in
               let loc = t.loc in
-              let is_omitted1, var1 = recognize_special_bound t1 in
-              let is_omitted2, var2 = recognize_special_bound t2 in
               let res =
                 match is_omitted1, is_omitted2 with
                 | true, true -> Ast.true_ ~loc ()

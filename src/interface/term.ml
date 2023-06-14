@@ -675,23 +675,6 @@ module type Ae_Base = sig
   val equiv : t -> t -> t
   (** Equivalence *)
 
-  module Int : sig
-    val lt : t -> t -> t
-    val le : t -> t -> t
-    val gt : t -> t -> t
-    val ge : t -> t -> t
-  end
-
-  module Real : sig
-    val lt : t -> t -> t
-    val le : t -> t -> t
-    val gt : t -> t -> t
-    val ge : t -> t -> t
-  end
-
-  val ex : (ty_var list * term_var list) -> t -> t
-  (* Existantial binding. *)
-
   val xor : t -> t -> t
   (** Exclusive disjunction. *)
 
