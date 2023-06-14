@@ -580,17 +580,21 @@ let maps_to ?loc id t =
   binary (builtin Maps_to) ?loc a t
 
 let in_interval ?loc ?lb ?rb t =
-  let lt_or_leq strict a b =
-    if strict then lt ?loc a b else leq ?loc a b
+  let inequality is_lt is_strict a b =
+    match is_lt, is_strict with
+    | true, true -> lt ?loc a b
+    | true, false -> leq ?loc a b
+    | false, true -> geq ?loc a b
+    | false, false -> gt ?loc a b
   in
   let t =
     match lb, rb with
     | Some (lb, ls), Some (rb, rs) ->
-      [lt_or_leq ls lb t; lt_or_leq rs t rb]
+      [inequality true ls lb t; inequality false rs rb t]
     | Some (lb, ls), None ->
-      [lt_or_leq ls lb t]
+      [inequality true ls lb t]
     | None, Some (rb, rs) ->
-      [lt_or_leq rs t rb]
+      [inequality false rs t rb]
     | None, None -> []
   in
   nary (builtin In_interval) ?loc t
