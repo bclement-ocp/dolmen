@@ -423,6 +423,10 @@ sq:
     { false }
 
 bound:
+  | QM
+    { let loc = L.mk_pos $startpos $endpos in
+      let v = I.mk I.term "?" in
+      T.const ~loc v }
   | s=ID
   | s=QM_ID
     { let loc = L.mk_pos $startpos $endpos in
