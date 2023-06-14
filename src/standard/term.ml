@@ -594,7 +594,7 @@ let in_interval ?loc ?lb ?rb t =
     | Some (lb, ls), None ->
       [inequality true ls lb t]
     | None, Some (rb, rs) ->
-      [inequality false rs t rb]
+      [inequality false rs rb t]
     | None, None -> []
   in
   nary (builtin In_interval) ?loc t
