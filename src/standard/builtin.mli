@@ -94,7 +94,7 @@ type _ t +=
       guarded by a clause verifying the rational is an integer). *)
 
 type _ t +=
-  | In_interval
+  | In_interval of bool * bool
   (** [In_interval (b1, b2): Int -> Int -> Int -> Prop]:
       Tests whether or not an interger is in an interval, [b1] (resp. [b2])
       determines if the interval is open on the lower bound

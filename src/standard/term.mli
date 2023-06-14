@@ -125,7 +125,7 @@ type builtin =
 
   | Maps_to
   (** Mapping; used in Alt-ergo triggers. *)
-  | In_interval
+  | In_interval of bool * bool
   (** Interval check; used in Alt-ergo triggers *)
   | Check
   (** Similar to cut, but does not introduce the proved term into the axioms. *)

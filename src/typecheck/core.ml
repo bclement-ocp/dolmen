@@ -13,7 +13,8 @@ module Ae = struct
                                       and type term := Type.T.t)
       (Ty : Dolmen.Intf.Ty.Ae_Base with type t = Type.Ty.t)
       (T : Dolmen.Intf.Term.Ae_Base with type t = Type.T.t
-                                     and type term_var := Type.T.Var.t) = struct
+                                     and type term_var := Type.T.Var.t
+                                ) = struct
 
     let mk_or a b = T._or [a; b]
     let mk_and a b = T._and [a; b]
@@ -115,8 +116,57 @@ module Ae = struct
           )
 
       (* Semantic triggers *)
-      | Type.Builtin (Ast.In_interval) ->
-        Type.builtin_term (Base.term_app_list (module Type) env s T.in_interval)
+      (* | Type.Builtin (Ast.In_interval (b1, b2)) ->
+        Type.builtin_term (Base.term_app3_ast (module Type) env s
+                 (fun _ast _a1 _a2 _a3 ->
+                    T.in_interval _a1 (b1, b2) _a2 _a3)) *)
+
+      | Type.Builtin (Ast.In_interval (b1, b2)) ->
+          let recognize_special_bound (t : Ast.t) (ty : Ty.t) =
+            match t.term with
+            | Symbol { name = Simple "?"; _ } -> true, None
+            | Symbol { name = Simple str; _ } ->
+                if String.length str > 0 && String.sub str 0 1 = "?" then
+                  let v = Type.T.Var.mk str ty in
+                  false, Some v
+                else
+                  false, None
+            | _ -> false, None
+          in
+          let inequality ~strict ~lower ty =
+            match strict, lower with
+            | true,  true  -> if ty = Ty.int then T.Int.lt else T.Real.lt
+            | false, true  -> if ty = Ty.int then T.Int.le else T.Real.le
+            | true, false  -> if ty = Ty.int then T.Int.gt else T.Real.gt
+            | false, false -> if ty = Ty.int then T.Int.ge else T.Real.ge
+          in
+          Type.builtin_term (Base.make_op3 (module Type) env s
+            @@ fun _ast (t, t1, t2) ->
+              let t = Type.parse_term env t in
+              let ty = Type.T.ty t in
+              let is_omitted1, var1 = recognize_special_bound t1 ty in
+              let is_omitted2, var2 = recognize_special_bound t2 ty in
+              let res =
+                match is_omitted1, is_omitted2 with
+                | true, true -> T._true
+                | true, false ->
+                    let t2 = Type.parse_term env t2 in
+                    inequality ~strict:b2 ~lower:false ty t2 t
+                | false, true ->
+                    let t1 = Type.parse_term env t1 in
+                    inequality ~strict:b1 ~lower:true ty t1 t
+                | false, false ->
+                    let t1 = Type.parse_term env t1 in
+                    let t2 = Type.parse_term env t2 in
+                    let i1 = inequality ~strict:b1 ~lower:true ty t1 t in
+                    let i2 = inequality ~strict:b2 ~lower:false ty t2 t in
+                    T._and [i1; i2]
+              in
+              let res =
+                match var1 with Some v -> T.ex ([], [v]) res | None -> res
+              in
+              match var2 with Some v -> T.ex ([], [v]) res | None -> res
+          )
 
       | Type.Builtin Ast.Maps_to ->
         Type.builtin_term (
