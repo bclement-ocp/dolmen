@@ -117,7 +117,7 @@ module Ae = struct
 
       (* Semantic triggers *)
       | Type.Builtin (Ast.In_interval (b1, b2)) ->
-          let recognize_special_bound ast (t : Ast.t) ty =
+          let recognize_special_bound _ast (t : Ast.t) ty =
             match t.term with
             | Symbol { name = Simple "?"; _ } -> true, None
             | Symbol { name = Simple str; _ } ->

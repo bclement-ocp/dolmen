@@ -2524,7 +2524,7 @@ file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ XOR
 
 file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ MINUS XOR
 ##
-## Ends in an error in state: 233.
+## Ends in an error in state: 234.
 ##
 ## bound -> MINUS . INTEGER [ RIGHTSQ LEFTSQ COMMA ]
 ## bound -> MINUS . DECIMAL [ RIGHTSQ LEFTSQ COMMA ]
@@ -2538,7 +2538,7 @@ file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ MINUS XOR
 
 file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ DECIMAL XOR
 ##
-## Ends in an error in state: 241.
+## Ends in an error in state: 242.
 ##
 ## lexpr_or_dom -> lexpr IN sq bound . COMMA bound sq [ RIGHTSQ COMMA BAR ]
 ##
@@ -2550,7 +2550,7 @@ file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ DECIMAL XOR
 
 file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ DECIMAL COMMA XOR
 ##
-## Ends in an error in state: 242.
+## Ends in an error in state: 243.
 ##
 ## lexpr_or_dom -> lexpr IN sq bound COMMA . bound sq [ RIGHTSQ COMMA BAR ]
 ##
@@ -2562,7 +2562,7 @@ file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ DECIMAL COMMA XOR
 
 file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ DECIMAL COMMA DECIMAL XOR
 ##
-## Ends in an error in state: 243.
+## Ends in an error in state: 244.
 ##
 ## lexpr_or_dom -> lexpr IN sq bound COMMA bound . sq [ RIGHTSQ COMMA BAR ]
 ##
@@ -2574,7 +2574,7 @@ file: AXIOM ID COLON EXISTS ID COLON ID LEFTSQ ID IN LEFTSQ DECIMAL COMMA DECIMA
 
 file: AXIOM ID COLON FORALL ID COLON ID LEFTSQ ID RIGHTSQ XOR
 ##
-## Ends in an error in state: 247.
+## Ends in an error in state: 248.
 ##
 ## lexpr -> FORALL separated_nonempty_list(COMMA,multi_logic_binder) triggers . filters DOT lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ##
@@ -2586,7 +2586,7 @@ file: AXIOM ID COLON FORALL ID COLON ID LEFTSQ ID RIGHTSQ XOR
 
 file: AXIOM ID COLON FORALL ID COLON ID LEFTBR ID RIGHTBR XOR
 ##
-## Ends in an error in state: 248.
+## Ends in an error in state: 249.
 ##
 ## lexpr -> FORALL separated_nonempty_list(COMMA,multi_logic_binder) triggers filters . DOT lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ##
@@ -2598,7 +2598,7 @@ file: AXIOM ID COLON FORALL ID COLON ID LEFTBR ID RIGHTBR XOR
 
 file: AXIOM ID COLON FORALL ID COLON ID DOT XOR
 ##
-## Ends in an error in state: 249.
+## Ends in an error in state: 250.
 ##
 ## lexpr -> FORALL separated_nonempty_list(COMMA,multi_logic_binder) triggers filters DOT . lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ##
@@ -2610,7 +2610,7 @@ file: AXIOM ID COLON FORALL ID COLON ID DOT XOR
 
 file: AXIOM ID COLON FORALL ID COLON ID DOT LEFTSQ BAR INTEGER BAR RIGHTSQ VOID
 ##
-## Ends in an error in state: 250.
+## Ends in an error in state: 251.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
@@ -2642,7 +2642,7 @@ file: AXIOM ID COLON FORALL ID COLON ID DOT LEFTSQ BAR INTEGER BAR RIGHTSQ VOID
 
 file: AXIOM ID COLON IF ID RIGHTSQ
 ##
-## Ends in an error in state: 251.
+## Ends in an error in state: 252.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TIMES THEN SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TIMES THEN SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL AT AND ]
@@ -2681,7 +2681,7 @@ file: AXIOM ID COLON IF ID RIGHTSQ
 
 file: AXIOM ID COLON IF ID THEN XOR
 ##
-## Ends in an error in state: 252.
+## Ends in an error in state: 253.
 ##
 ## lexpr -> IF lexpr THEN . lexpr ELSE lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ##
@@ -2693,7 +2693,7 @@ file: AXIOM ID COLON IF ID THEN XOR
 
 file: AXIOM ID COLON IF ID THEN ID RIGHTSQ
 ##
-## Ends in an error in state: 253.
+## Ends in an error in state: 254.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL ELSE AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL ELSE AT AND ]
@@ -2732,7 +2732,7 @@ file: AXIOM ID COLON IF ID THEN ID RIGHTSQ
 
 file: AXIOM ID COLON IF ID THEN ID ELSE XOR
 ##
-## Ends in an error in state: 254.
+## Ends in an error in state: 255.
 ##
 ## lexpr -> IF lexpr THEN lexpr ELSE . lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ##
@@ -2744,7 +2744,7 @@ file: AXIOM ID COLON IF ID THEN ID ELSE XOR
 
 file: AXIOM ID COLON IF ID THEN ID ELSE LEFTSQ BAR INTEGER BAR RIGHTSQ VOID
 ##
-## Ends in an error in state: 255.
+## Ends in an error in state: 256.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
@@ -2776,7 +2776,7 @@ file: AXIOM ID COLON IF ID THEN ID ELSE LEFTSQ BAR INTEGER BAR RIGHTSQ VOID
 
 file: AXIOM ID COLON LEFTBR ID EQUAL ID RIGHTSQ
 ##
-## Ends in an error in state: 256.
+## Ends in an error in state: 257.
 ##
 ## label_expr -> ident EQUAL lexpr . [ RIGHTBR PV ]
 ## lexpr -> lexpr . PLUS lexpr [ XOR TIMES SLASH RIGHTBR RIGHTARROW PV POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL AT AND ]
@@ -2815,7 +2815,7 @@ file: AXIOM ID COLON LEFTBR ID EQUAL ID RIGHTSQ
 
 file: AXIOM ID COLON LEFTBR ID XOR
 ##
-## Ends in an error in state: 259.
+## Ends in an error in state: 260.
 ##
 ## label_expr -> ident . EQUAL lexpr [ RIGHTBR PV ]
 ## simple_expr -> ident . [ WITH SHARP QM_ID QM LEFTSQ DOT COLON ]
@@ -2829,7 +2829,7 @@ file: AXIOM ID COLON LEFTBR ID XOR
 
 file: AXIOM ID COLON LEFTPAR ID RIGHTSQ
 ##
-## Ends in an error in state: 260.
+## Ends in an error in state: 261.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TIMES SLASH RIGHTPAR RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TIMES SLASH RIGHTPAR RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL AT AND ]
@@ -2868,7 +2868,7 @@ file: AXIOM ID COLON LEFTPAR ID RIGHTSQ
 
 file: AXIOM ID COLON LET ID EQUAL ID IN LEFTSQ BAR INTEGER BAR RIGHTSQ VOID
 ##
-## Ends in an error in state: 262.
+## Ends in an error in state: 263.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
@@ -2900,7 +2900,7 @@ file: AXIOM ID COLON LET ID EQUAL ID IN LEFTSQ BAR INTEGER BAR RIGHTSQ VOID
 
 file: AXIOM ID COLON LET ID EQUAL ID COMMA XOR
 ##
-## Ends in an error in state: 264.
+## Ends in an error in state: 265.
 ##
 ## separated_nonempty_list(COMMA,let_binder) -> let_binder COMMA . separated_nonempty_list(COMMA,let_binder) [ IN ]
 ##
@@ -2912,7 +2912,7 @@ file: AXIOM ID COLON LET ID EQUAL ID COMMA XOR
 
 file: AXIOM ID COLON LET ID XOR
 ##
-## Ends in an error in state: 266.
+## Ends in an error in state: 267.
 ##
 ## let_binder -> ident . EQUAL lexpr [ IN COMMA ]
 ##
@@ -2924,7 +2924,7 @@ file: AXIOM ID COLON LET ID XOR
 
 file: AXIOM ID COLON LET ID EQUAL XOR
 ##
-## Ends in an error in state: 267.
+## Ends in an error in state: 268.
 ##
 ## let_binder -> ident EQUAL . lexpr [ IN COMMA ]
 ##
@@ -2936,7 +2936,7 @@ file: AXIOM ID COLON LET ID EQUAL XOR
 
 file: AXIOM ID COLON LET ID EQUAL ID RIGHTSQ
 ##
-## Ends in an error in state: 268.
+## Ends in an error in state: 269.
 ##
 ## let_binder -> ident EQUAL lexpr . [ IN COMMA ]
 ## lexpr -> lexpr . PLUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE IN HAT GT GE EQUAL COMMA AT AND ]
@@ -2975,7 +2975,7 @@ file: AXIOM ID COLON LET ID EQUAL ID RIGHTSQ
 
 file: AXIOM ID COLON MATCH ID RIGHTSQ
 ##
-## Ends in an error in state: 269.
+## Ends in an error in state: 270.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR WITH TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR WITH TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL AT AND ]
@@ -3014,7 +3014,7 @@ file: AXIOM ID COLON MATCH ID RIGHTSQ
 
 file: AXIOM ID COLON MATCH ID WITH XOR
 ##
-## Ends in an error in state: 270.
+## Ends in an error in state: 271.
 ##
 ## lexpr -> MATCH lexpr WITH . match_cases END [ XOR WITH TYPE TIMES THEORY THEN SLASH RIGHTSQ RIGHTPAR RIGHTBR RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LEFTARROW LE IN HAT GT GOAL GE FUNC EQUAL EOF END ELSE COMMA CHECK_SAT CASESPLIT BAR AXIOM AT AND ]
 ##
@@ -3026,7 +3026,7 @@ file: AXIOM ID COLON MATCH ID WITH XOR
 
 file: AXIOM ID COLON MATCH ID WITH BAR XOR
 ##
-## Ends in an error in state: 271.
+## Ends in an error in state: 272.
 ##
 ## match_cases -> BAR . match_case [ END BAR ]
 ##
@@ -3038,7 +3038,7 @@ file: AXIOM ID COLON MATCH ID WITH BAR XOR
 
 file: AXIOM ID COLON MATCH ID WITH ID LEFTPAR ID RIGHTPAR XOR
 ##
-## Ends in an error in state: 272.
+## Ends in an error in state: 273.
 ##
 ## match_case -> simple_pattern . RIGHTARROW lexpr [ END BAR ]
 ##
@@ -3050,7 +3050,7 @@ file: AXIOM ID COLON MATCH ID WITH ID LEFTPAR ID RIGHTPAR XOR
 
 file: AXIOM ID COLON MATCH ID WITH ID RIGHTARROW XOR
 ##
-## Ends in an error in state: 273.
+## Ends in an error in state: 274.
 ##
 ## match_case -> simple_pattern RIGHTARROW . lexpr [ END BAR ]
 ##
@@ -3062,7 +3062,7 @@ file: AXIOM ID COLON MATCH ID WITH ID RIGHTARROW XOR
 
 file: AXIOM ID COLON MATCH ID WITH ID RIGHTARROW ID RIGHTSQ
 ##
-## Ends in an error in state: 274.
+## Ends in an error in state: 275.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL END BAR AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL END BAR AT AND ]
@@ -3101,7 +3101,7 @@ file: AXIOM ID COLON MATCH ID WITH ID RIGHTARROW ID RIGHTSQ
 
 file: AXIOM ID COLON MATCH ID WITH ID XOR
 ##
-## Ends in an error in state: 276.
+## Ends in an error in state: 277.
 ##
 ## simple_pattern -> ident . [ RIGHTARROW ]
 ## simple_pattern -> ident . LEFTPAR separated_nonempty_list(COMMA,ident) RIGHTPAR [ RIGHTARROW ]
@@ -3114,7 +3114,7 @@ file: AXIOM ID COLON MATCH ID WITH ID XOR
 
 file: AXIOM ID COLON MATCH ID WITH ID LEFTPAR XOR
 ##
-## Ends in an error in state: 277.
+## Ends in an error in state: 278.
 ##
 ## simple_pattern -> ident LEFTPAR . separated_nonempty_list(COMMA,ident) RIGHTPAR [ RIGHTARROW ]
 ##
@@ -3126,7 +3126,7 @@ file: AXIOM ID COLON MATCH ID WITH ID LEFTPAR XOR
 
 file: AXIOM ID COLON MATCH ID WITH ID LEFTPAR ID XOR
 ##
-## Ends in an error in state: 280.
+## Ends in an error in state: 281.
 ##
 ## separated_nonempty_list(COMMA,ident) -> ident . [ RIGHTPAR ]
 ## separated_nonempty_list(COMMA,ident) -> ident . COMMA separated_nonempty_list(COMMA,ident) [ RIGHTPAR ]
@@ -3139,7 +3139,7 @@ file: AXIOM ID COLON MATCH ID WITH ID LEFTPAR ID XOR
 
 file: AXIOM ID COLON MATCH ID WITH ID LEFTPAR ID COMMA XOR
 ##
-## Ends in an error in state: 281.
+## Ends in an error in state: 282.
 ##
 ## separated_nonempty_list(COMMA,ident) -> ident COMMA . separated_nonempty_list(COMMA,ident) [ RIGHTPAR ]
 ##
@@ -3151,7 +3151,7 @@ file: AXIOM ID COLON MATCH ID WITH ID LEFTPAR ID COMMA XOR
 
 file: AXIOM ID COLON MATCH ID WITH ID RIGHTARROW ID BAR XOR
 ##
-## Ends in an error in state: 285.
+## Ends in an error in state: 286.
 ##
 ## match_cases -> match_cases BAR . match_case [ END BAR ]
 ##
@@ -3163,7 +3163,7 @@ file: AXIOM ID COLON MATCH ID WITH ID RIGHTARROW ID BAR XOR
 
 file: THEORY ID EXTENDS ID EQUAL CASESPLIT ID COLON ID RIGHTSQ
 ##
-## Ends in an error in state: 291.
+## Ends in an error in state: 292.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL END CASESPLIT AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL END CASESPLIT AXIOM AT AND ]
@@ -3202,7 +3202,7 @@ file: THEORY ID EXTENDS ID EQUAL CASESPLIT ID COLON ID RIGHTSQ
 
 file: THEORY ID EXTENDS ID EQUAL AXIOM XOR
 ##
-## Ends in an error in state: 292.
+## Ends in an error in state: 293.
 ##
 ## theory_elt -> AXIOM . decl_ident COLON lexpr [ END CASESPLIT AXIOM ]
 ##
@@ -3214,7 +3214,7 @@ file: THEORY ID EXTENDS ID EQUAL AXIOM XOR
 
 file: THEORY ID EXTENDS ID EQUAL AXIOM ID XOR
 ##
-## Ends in an error in state: 293.
+## Ends in an error in state: 294.
 ##
 ## theory_elt -> AXIOM decl_ident . COLON lexpr [ END CASESPLIT AXIOM ]
 ##
@@ -3226,7 +3226,7 @@ file: THEORY ID EXTENDS ID EQUAL AXIOM ID XOR
 
 file: THEORY ID EXTENDS ID EQUAL AXIOM ID COLON XOR
 ##
-## Ends in an error in state: 294.
+## Ends in an error in state: 295.
 ##
 ## theory_elt -> AXIOM decl_ident COLON . lexpr [ END CASESPLIT AXIOM ]
 ##
@@ -3238,7 +3238,7 @@ file: THEORY ID EXTENDS ID EQUAL AXIOM ID COLON XOR
 
 file: THEORY ID EXTENDS ID EQUAL AXIOM ID COLON ID RIGHTSQ
 ##
-## Ends in an error in state: 295.
+## Ends in an error in state: 296.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL END CASESPLIT AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TIMES SLASH RIGHTARROW POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LE HAT GT GE EQUAL END CASESPLIT AXIOM AT AND ]
@@ -3277,7 +3277,7 @@ file: THEORY ID EXTENDS ID EQUAL AXIOM ID COLON ID RIGHTSQ
 
 file: REWRITING XOR
 ##
-## Ends in an error in state: 300.
+## Ends in an error in state: 301.
 ##
 ## decl -> REWRITING . decl_ident COLON rewriting_list [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3289,7 +3289,7 @@ file: REWRITING XOR
 
 file: REWRITING ID XOR
 ##
-## Ends in an error in state: 301.
+## Ends in an error in state: 302.
 ##
 ## decl -> REWRITING decl_ident . COLON rewriting_list [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3301,7 +3301,7 @@ file: REWRITING ID XOR
 
 file: REWRITING ID COLON XOR
 ##
-## Ends in an error in state: 302.
+## Ends in an error in state: 303.
 ##
 ## decl -> REWRITING decl_ident COLON . rewriting_list [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3313,7 +3313,7 @@ file: REWRITING ID COLON XOR
 
 file: REWRITING ID COLON ID RIGHTSQ
 ##
-## Ends in an error in state: 304.
+## Ends in an error in state: 305.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PV PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
@@ -3354,7 +3354,7 @@ file: REWRITING ID COLON ID RIGHTSQ
 
 file: REWRITING ID COLON ID PV XOR
 ##
-## Ends in an error in state: 305.
+## Ends in an error in state: 306.
 ##
 ## rewriting_list -> lexpr PV . [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## rewriting_list -> lexpr PV . rewriting_list [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3367,7 +3367,7 @@ file: REWRITING ID COLON ID PV XOR
 
 file: PRED XOR
 ##
-## Ends in an error in state: 307.
+## Ends in an error in state: 308.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED . raw_named_ident EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED . raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3382,7 +3382,7 @@ file: PRED XOR
 
 file: PRED ID COMMA
 ##
-## Ends in an error in state: 308.
+## Ends in an error in state: 309.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident . EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident . LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3403,7 +3403,7 @@ file: PRED ID COMMA
 
 file: PRED ID LEFTPAR XOR
 ##
-## Ends in an error in state: 309.
+## Ends in an error in state: 310.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident LEFTPAR . loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident LEFTPAR . loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR EQUAL lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3416,7 +3416,7 @@ file: PRED ID LEFTPAR XOR
 
 file: PRED ID LEFTPAR RIGHTPAR XOR
 ##
-## Ends in an error in state: 312.
+## Ends in an error in state: 313.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR . EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR . EQUAL lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3429,7 +3429,7 @@ file: PRED ID LEFTPAR RIGHTPAR XOR
 
 file: PRED ID LEFTPAR RIGHTPAR EQUAL XOR
 ##
-## Ends in an error in state: 313.
+## Ends in an error in state: 314.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR EQUAL . lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR EQUAL . lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3442,7 +3442,7 @@ file: PRED ID LEFTPAR RIGHTPAR EQUAL XOR
 
 file: PRED ID LEFTPAR RIGHTPAR EQUAL ID RIGHTSQ
 ##
-## Ends in an error in state: 314.
+## Ends in an error in state: 315.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
@@ -3482,7 +3482,7 @@ file: PRED ID LEFTPAR RIGHTPAR EQUAL ID RIGHTSQ
 
 file: PRED ID LEFTPAR RIGHTPAR EQUAL ID AND XOR
 ##
-## Ends in an error in state: 315.
+## Ends in an error in state: 316.
 ##
 ## lexpr -> lexpr AND . lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR EQUAL lexpr AND . separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3495,7 +3495,7 @@ file: PRED ID LEFTPAR RIGHTPAR EQUAL ID AND XOR
 
 file: FUNC XOR
 ##
-## Ends in an error in state: 316.
+## Ends in an error in state: 317.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC . raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC . raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3508,7 +3508,7 @@ file: FUNC XOR
 
 file: FUNC ID EQUAL
 ##
-## Ends in an error in state: 317.
+## Ends in an error in state: 318.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident . LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident . LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3527,7 +3527,7 @@ file: FUNC ID EQUAL
 
 file: FUNC ID LEFTPAR XOR
 ##
-## Ends in an error in state: 318.
+## Ends in an error in state: 319.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR . loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR . loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3540,7 +3540,7 @@ file: FUNC ID LEFTPAR XOR
 
 file: FUNC ID LEFTPAR RIGHTPAR XOR
 ##
-## Ends in an error in state: 320.
+## Ends in an error in state: 321.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR . COLON primitive_type EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR . COLON primitive_type EQUAL lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3553,7 +3553,7 @@ file: FUNC ID LEFTPAR RIGHTPAR XOR
 
 file: FUNC ID LEFTPAR RIGHTPAR COLON XOR
 ##
-## Ends in an error in state: 321.
+## Ends in an error in state: 322.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON . primitive_type EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON . primitive_type EQUAL lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3566,7 +3566,7 @@ file: FUNC ID LEFTPAR RIGHTPAR COLON XOR
 
 file: FUNC ID LEFTPAR RIGHTPAR COLON ID XOR
 ##
-## Ends in an error in state: 322.
+## Ends in an error in state: 323.
 ##
 ## primitive_type -> primitive_type . ty_ident [ ID EQUAL ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type . EQUAL lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3580,7 +3580,7 @@ file: FUNC ID LEFTPAR RIGHTPAR COLON ID XOR
 
 file: FUNC ID LEFTPAR RIGHTPAR COLON ID EQUAL XOR
 ##
-## Ends in an error in state: 323.
+## Ends in an error in state: 324.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL . lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL . lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3593,7 +3593,7 @@ file: FUNC ID LEFTPAR RIGHTPAR COLON ID EQUAL XOR
 
 file: FUNC ID LEFTPAR RIGHTPAR COLON ID EQUAL ID RIGHTSQ
 ##
-## Ends in an error in state: 324.
+## Ends in an error in state: 325.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
@@ -3633,7 +3633,7 @@ file: FUNC ID LEFTPAR RIGHTPAR COLON ID EQUAL ID RIGHTSQ
 
 file: FUNC ID LEFTPAR RIGHTPAR COLON ID EQUAL ID AND XOR
 ##
-## Ends in an error in state: 325.
+## Ends in an error in state: 326.
 ##
 ## lexpr -> lexpr AND . lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> FUNC raw_named_ident LEFTPAR loption(separated_nonempty_list(COMMA,logic_binder)) RIGHTPAR COLON primitive_type EQUAL lexpr AND . separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3646,7 +3646,7 @@ file: FUNC ID LEFTPAR RIGHTPAR COLON ID EQUAL ID AND XOR
 
 file: FUNC ID LEFTPAR ID COLON ID COMMA XOR
 ##
-## Ends in an error in state: 328.
+## Ends in an error in state: 329.
 ##
 ## separated_nonempty_list(COMMA,logic_binder) -> logic_binder COMMA . separated_nonempty_list(COMMA,logic_binder) [ RIGHTPAR ]
 ##
@@ -3658,7 +3658,7 @@ file: FUNC ID LEFTPAR ID COLON ID COMMA XOR
 
 file: FUNC ID LEFTPAR ID XOR
 ##
-## Ends in an error in state: 330.
+## Ends in an error in state: 331.
 ##
 ## logic_binder -> ident . COLON primitive_type [ RIGHTPAR COMMA ]
 ##
@@ -3670,7 +3670,7 @@ file: FUNC ID LEFTPAR ID XOR
 
 file: FUNC ID LEFTPAR ID COLON XOR
 ##
-## Ends in an error in state: 331.
+## Ends in an error in state: 332.
 ##
 ## logic_binder -> ident COLON . primitive_type [ RIGHTPAR COMMA ]
 ##
@@ -3682,7 +3682,7 @@ file: FUNC ID LEFTPAR ID COLON XOR
 
 file: FUNC ID LEFTPAR ID COLON ID XOR
 ##
-## Ends in an error in state: 332.
+## Ends in an error in state: 333.
 ##
 ## logic_binder -> ident COLON primitive_type . [ RIGHTPAR COMMA ]
 ## primitive_type -> primitive_type . ty_ident [ RIGHTPAR ID COMMA ]
@@ -3695,7 +3695,7 @@ file: FUNC ID LEFTPAR ID COLON ID XOR
 
 file: PRED ID EQUAL XOR
 ##
-## Ends in an error in state: 334.
+## Ends in an error in state: 335.
 ##
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident EQUAL . lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident EQUAL . lexpr AND separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3708,7 +3708,7 @@ file: PRED ID EQUAL XOR
 
 file: PRED ID EQUAL ID RIGHTSQ
 ##
-## Ends in an error in state: 335.
+## Ends in an error in state: 336.
 ##
 ## lexpr -> lexpr . PLUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
 ## lexpr -> lexpr . MINUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
@@ -3748,7 +3748,7 @@ file: PRED ID EQUAL ID RIGHTSQ
 
 file: PRED ID EQUAL ID AND XOR
 ##
-## Ends in an error in state: 336.
+## Ends in an error in state: 337.
 ##
 ## lexpr -> lexpr AND . lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
 ## separated_nonempty_list(AND,function_or_predicate_def) -> PRED raw_named_ident EQUAL lexpr AND . separated_nonempty_list(AND,function_or_predicate_def) [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3761,7 +3761,7 @@ file: PRED ID EQUAL ID AND XOR
 
 file: LOGIC XOR
 ##
-## Ends in an error in state: 338.
+## Ends in an error in state: 339.
 ##
 ## decl -> LOGIC . ac_modifier separated_nonempty_list(COMMA,raw_named_ident) COLON logic_type [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3773,7 +3773,7 @@ file: LOGIC XOR
 
 file: LOGIC AC XOR
 ##
-## Ends in an error in state: 340.
+## Ends in an error in state: 341.
 ##
 ## decl -> LOGIC ac_modifier . separated_nonempty_list(COMMA,raw_named_ident) COLON logic_type [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3785,7 +3785,7 @@ file: LOGIC AC XOR
 
 file: LOGIC ID COLON XOR
 ##
-## Ends in an error in state: 342.
+## Ends in an error in state: 343.
 ##
 ## decl -> LOGIC ac_modifier separated_nonempty_list(COMMA,raw_named_ident) COLON . logic_type [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3797,7 +3797,7 @@ file: LOGIC ID COLON XOR
 
 file: LOGIC ID COLON ID XOR
 ##
-## Ends in an error in state: 346.
+## Ends in an error in state: 347.
 ##
 ## primitive_type -> primitive_type . ty_ident [ TYPE THEORY RIGHTARROW REWRITING PRED LOGIC ID GOAL FUNC EOF COMMA CHECK_SAT AXIOM ]
 ## primitive_type_or_prop -> primitive_type . [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3812,7 +3812,7 @@ file: LOGIC ID COLON ID XOR
 
 file: LOGIC ID COLON ID COMMA ID RIGHTPAR
 ##
-## Ends in an error in state: 347.
+## Ends in an error in state: 348.
 ##
 ## logic_type -> loption(separated_nonempty_list(COMMA,primitive_type)) . RIGHTARROW primitive_type_or_prop [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3825,14 +3825,14 @@ file: LOGIC ID COLON ID COMMA ID RIGHTPAR
 ## may provide an INCOMPLETE view of the future (what was expected next).
 ## In state 37, spurious reduction of production separated_nonempty_list(COMMA,primitive_type) -> primitive_type
 ## In state 39, spurious reduction of production separated_nonempty_list(COMMA,primitive_type) -> primitive_type COMMA separated_nonempty_list(COMMA,primitive_type)
-## In state 344, spurious reduction of production loption(separated_nonempty_list(COMMA,primitive_type)) -> separated_nonempty_list(COMMA,primitive_type)
+## In state 345, spurious reduction of production loption(separated_nonempty_list(COMMA,primitive_type)) -> separated_nonempty_list(COMMA,primitive_type)
 ##
 
 <YOUR SYNTAX ERROR MESSAGE HERE>
 
 file: LOGIC ID COLON RIGHTARROW XOR
 ##
-## Ends in an error in state: 348.
+## Ends in an error in state: 349.
 ##
 ## logic_type -> loption(separated_nonempty_list(COMMA,primitive_type)) RIGHTARROW . primitive_type_or_prop [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3844,7 +3844,7 @@ file: LOGIC ID COLON RIGHTARROW XOR
 
 file: LOGIC ID COLON RIGHTARROW ID XOR
 ##
-## Ends in an error in state: 350.
+## Ends in an error in state: 351.
 ##
 ## primitive_type -> primitive_type . ty_ident [ TYPE THEORY REWRITING PRED LOGIC ID GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## primitive_type_or_prop -> primitive_type . [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
@@ -3857,7 +3857,7 @@ file: LOGIC ID COLON RIGHTARROW ID XOR
 
 file: LOGIC ID LEFTPAR
 ##
-## Ends in an error in state: 352.
+## Ends in an error in state: 353.
 ##
 ## separated_nonempty_list(COMMA,raw_named_ident) -> raw_named_ident . [ COLON ]
 ## separated_nonempty_list(COMMA,raw_named_ident) -> raw_named_ident . COMMA separated_nonempty_list(COMMA,raw_named_ident) [ COLON ]
@@ -3876,7 +3876,7 @@ file: LOGIC ID LEFTPAR
 
 file: LOGIC ID COMMA XOR
 ##
-## Ends in an error in state: 353.
+## Ends in an error in state: 354.
 ##
 ## separated_nonempty_list(COMMA,raw_named_ident) -> raw_named_ident COMMA . separated_nonempty_list(COMMA,raw_named_ident) [ COLON ]
 ##
@@ -3888,7 +3888,7 @@ file: LOGIC ID COMMA XOR
 
 file: GOAL XOR
 ##
-## Ends in an error in state: 355.
+## Ends in an error in state: 356.
 ##
 ## decl -> GOAL . decl_ident COLON lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3900,7 +3900,7 @@ file: GOAL XOR
 
 file: GOAL ID XOR
 ##
-## Ends in an error in state: 356.
+## Ends in an error in state: 357.
 ##
 ## decl -> GOAL decl_ident . COLON lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3912,7 +3912,7 @@ file: GOAL ID XOR
 
 file: GOAL ID COLON XOR
 ##
-## Ends in an error in state: 357.
+## Ends in an error in state: 358.
 ##
 ## decl -> GOAL decl_ident COLON . lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3924,7 +3924,7 @@ file: GOAL ID COLON XOR
 
 file: GOAL ID COLON ID RIGHTSQ
 ##
-## Ends in an error in state: 358.
+## Ends in an error in state: 359.
 ##
 ## decl -> GOAL decl_ident COLON lexpr . [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## lexpr -> lexpr . PLUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
@@ -3963,7 +3963,7 @@ file: GOAL ID COLON ID RIGHTSQ
 
 file: CHECK_SAT XOR
 ##
-## Ends in an error in state: 359.
+## Ends in an error in state: 360.
 ##
 ## decl -> CHECK_SAT . decl_ident COLON lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3975,7 +3975,7 @@ file: CHECK_SAT XOR
 
 file: CHECK_SAT ID XOR
 ##
-## Ends in an error in state: 360.
+## Ends in an error in state: 361.
 ##
 ## decl -> CHECK_SAT decl_ident . COLON lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3987,7 +3987,7 @@ file: CHECK_SAT ID XOR
 
 file: CHECK_SAT ID COLON XOR
 ##
-## Ends in an error in state: 361.
+## Ends in an error in state: 362.
 ##
 ## decl -> CHECK_SAT decl_ident COLON . lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -3999,7 +3999,7 @@ file: CHECK_SAT ID COLON XOR
 
 file: CHECK_SAT ID COLON ID RIGHTSQ
 ##
-## Ends in an error in state: 362.
+## Ends in an error in state: 363.
 ##
 ## decl -> CHECK_SAT decl_ident COLON lexpr . [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## lexpr -> lexpr . PLUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
@@ -4038,7 +4038,7 @@ file: CHECK_SAT ID COLON ID RIGHTSQ
 
 file: AXIOM XOR
 ##
-## Ends in an error in state: 363.
+## Ends in an error in state: 364.
 ##
 ## decl -> AXIOM . decl_ident COLON lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -4050,7 +4050,7 @@ file: AXIOM XOR
 
 file: AXIOM ID XOR
 ##
-## Ends in an error in state: 364.
+## Ends in an error in state: 365.
 ##
 ## decl -> AXIOM decl_ident . COLON lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -4062,7 +4062,7 @@ file: AXIOM ID XOR
 
 file: AXIOM ID COLON XOR
 ##
-## Ends in an error in state: 365.
+## Ends in an error in state: 366.
 ##
 ## decl -> AXIOM decl_ident COLON . lexpr [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ##
@@ -4074,7 +4074,7 @@ file: AXIOM ID COLON XOR
 
 file: AXIOM ID COLON ID RIGHTSQ
 ##
-## Ends in an error in state: 366.
+## Ends in an error in state: 367.
 ##
 ## decl -> AXIOM decl_ident COLON lexpr . [ TYPE THEORY REWRITING PRED LOGIC GOAL FUNC EOF CHECK_SAT AXIOM ]
 ## lexpr -> lexpr . PLUS lexpr [ XOR TYPE TIMES THEORY SLASH RIGHTARROW REWRITING PRED POWDOT POW PLUS PERCENT OR NOTEQ MINUS LT LRARROW LOGIC LE HAT GT GOAL GE FUNC EQUAL EOF CHECK_SAT AXIOM AT AND ]
@@ -4113,7 +4113,7 @@ file: AXIOM ID COLON ID RIGHTSQ
 
 file: LOGIC ID COLON PROP XOR
 ##
-## Ends in an error in state: 371.
+## Ends in an error in state: 372.
 ##
 ## list(decl) -> decl . list(decl) [ EOF ]
 ##
@@ -4125,7 +4125,7 @@ file: LOGIC ID COLON PROP XOR
 
 input: XOR
 ##
-## Ends in an error in state: 373.
+## Ends in an error in state: 374.
 ##
 ## input' -> . input [ # ]
 ##

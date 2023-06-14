@@ -153,7 +153,7 @@ module type Term = sig
   (** Create a cut.
       TODO: ask @iguernlala about this. *)
 
-  val in_interval : ?loc:location -> t -> t * bool -> t * bool -> t
+  val in_interval : ?loc:location -> t -> (t * bool) -> (t * bool) -> t
   (** Create a trigger for the given term/variable being inside
       of a given interval, which is given as a lower bound, and an upper bound.
       Each bound contains an expression for the bound value, as well as a boolean

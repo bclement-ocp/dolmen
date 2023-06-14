@@ -581,26 +581,6 @@ let maps_to ?loc id t =
   let a = const ?loc id in
   binary (builtin Maps_to) ?loc a t
 
-(* let in_interval ?loc ?lb ?rb t =
-  let inequality is_lt is_strict a b =
-    match is_lt, is_strict with
-    | true, true -> lt ?loc a b
-    | true, false -> leq ?loc a b
-    | false, true -> geq ?loc a b
-    | false, false -> gt ?loc a b
-  in
-  let t =
-    match lb, rb with
-    | Some (lb, ls), Some (rb, rs) ->
-      [inequality true ls lb t; inequality false rs rb t]
-    | Some (lb, ls), None ->
-      [inequality true ls lb t]
-    | None, Some (rb, rs) ->
-      [inequality false rs rb t]
-    | None, None -> []
-  in
-  nary (builtin In_interval) ?loc t *)
-
 let in_interval ?loc t (lb, ls) (rb, rs) =
   tertiary (builtin (In_interval (ls, rs))) ?loc t lb rb
 
