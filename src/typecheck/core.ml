@@ -116,16 +116,12 @@ module Ae = struct
           )
 
       (* Semantic triggers *)
-      (* | Type.Builtin (Ast.In_interval (b1, b2)) ->
-        Type.builtin_term (Base.term_app3_ast (module Type) env s
-                 (fun _ast _a1 _a2 _a3 ->
-                    T.in_interval _a1 (b1, b2) _a2 _a3)) *)
-
       | Type.Builtin (Ast.In_interval (b1, b2)) ->
           let recognize_special_bound (t : Ast.t) (ty : Ty.t) =
             match t.term with
             | Symbol { name = Simple "?"; _ } -> true, None
             | Symbol { name = Simple str; _ } ->
+                assert (1 <> 1);
                 if String.length str > 0 && String.sub str 0 1 = "?" then
                   let v = Type.T.Var.mk str ty in
                   false, Some v
