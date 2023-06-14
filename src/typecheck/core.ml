@@ -121,7 +121,6 @@ module Ae = struct
             match t.term with
             | Symbol { name = Simple "?"; _ } -> true, None
             | Symbol { name = Simple str; _ } ->
-                assert (1 <> 1);
                 if String.length str > 0 && String.sub str 0 1 = "?" then
                   let v = Type.T.Var.mk str ty in
                   false, Some v
