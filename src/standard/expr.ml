@@ -1895,9 +1895,10 @@ module Term = struct
       mk' ~builtin:Builtin.Coercion "coerce"
         [a; b] [Ty.of_var a] (Ty.of_var b)
 
-    let in_interval (b1, b2) = mk'
-        ~name:"in_interval" ~builtin:(Builtin.In_interval (b1, b2))
-        "InInterval" [] [Ty.int; Ty.int; Ty.int] Ty.prop
+    let in_interval (b1, b2) =
+      let a = Ty.Var.mk "alpha" in
+      mk' ~name:"in_interval" ~builtin:(Builtin.In_interval (b1, b2))
+        "InInterval" [] [Ty.of_var a; Ty.of_var a; Ty.of_var a] Ty.prop
 
     let maps_to =
       let a = Ty.Var.mk "alpha" in
