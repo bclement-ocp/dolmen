@@ -19,14 +19,40 @@ module Ae = struct
     let mk_or a b = T._or [a; b]
     let mk_and a b = T._and [a; b]
 
-    let parse_trigger env ast = function
-      | { Ast.term = Ast.App (
-          { Ast.term = Ast.Builtin And; _ }, l
-        ); _} ->
-        List.map (Type.parse_term env) l
-      | _ ->
-        Type._error env (Ast ast)
-          (Type.Expected ("A multi-trigger (i.e. a list of term patterns)", None))
+    let free_qm_ids ast =
+      let test id =
+        match (id : Id.t) with
+        (* TODO: add a namespace for these ids ? *)
+        | { ns = Term; name = Simple s; } when
+            String.length s >= 2 (* ? + at least one char *)
+            && s.[0] = '?' -> true
+        | _ -> false
+      in
+      Ast.S.elements (Ast.free_ids ~test Ast.S.empty ast)
+
+    let parse_trigger env ast =
+      let l =
+        List.map (fun qm_id ->
+          Ast.colon (Ast.const qm_id) (Ast.ty_real ())
+        ) (free_qm_ids ast)
+      in
+      let t = Ast.exists l ast in
+      Type.parse_term env t
+
+
+    let parse_maps_to env ast (var, t) =
+      let t = Type.parse_term env t in
+      match var with
+      | { Ast.term = Ast.Symbol sym; _ }
+      | { Ast.term =
+            Ast.App ({ Ast.term = Ast.Symbol sym; _ }, []); _
+        } ->
+        begin
+          match Type.find_bound env sym with
+          | `Term_var v -> T.semantic_trigger (T.maps_to v t)
+          | _ -> Type._error env (Ast ast) (Type.Cannot_find (sym, ""))
+        end
+      | _ -> Type._error env (Ast ast) (Type.Expected ("Variable name", None))
 
     let parse env s =
       match s with
@@ -103,8 +129,9 @@ module Ae = struct
 
       (* Triggers *)
       | Type.Id { name = Simple "triggers"; ns = Attr; } ->
-        Type.builtin_tags (fun ast l ->
-            let l = List.map (parse_trigger env ast) l in
+        Type.builtin_tags
+          (fun _ast l ->
+            let l = List.map (parse_trigger env) l in
             [Type.Set (Tag.triggers, l)]
           )
 
@@ -115,85 +142,17 @@ module Ae = struct
             [Type.Set (Tag.filters, l)]
           )
 
-      (* Semantic triggers *)
-      | Type.Builtin (Ast.In_interval (b1, b2)) ->
-          let recognize_special_bound _ast (t : Ast.t) ty =
-            match t.term with
-            | Symbol { name = Simple "?"; _ } -> true, None
-            | Symbol { name = Simple str; _ } ->
-                if String.length str > 0 && String.sub str 0 1 = "?" then
-                  let t =
-                    if ty = Ty.int then
-                      Ast.colon ~loc:t.loc t (Ast.ty_int ~loc:t.loc ())
-                    else if ty = Ty.real then
-                      Ast.colon ~loc:t.loc t (Ast.ty_real ~loc:t.loc ())
-                    else
-                      assert false
-                  in
-                  false, Some t
-                else
-                  false, None
-            | _ -> false, None
-          in
-          let inequality ~strict ~lower =
-            match strict, lower with
-            | true,  true  -> Ast.lt
-            | false, true  -> Ast.leq
-            | true, false  -> Ast.gt
-            | false, false -> Ast.geq
-          in
-          (* The ternary operator in_interval is replaced by two inequalities.meta         We also bind the variables of the form ?id. *)
-          Type.builtin_term (Base.make_op3 (module Type) env s
-            @@ fun ast (t, t1, t2) ->
-              let ty = Type.parse_term env t |> Type.T.ty in
-              let is_omitted1, var1 = recognize_special_bound ast t1 ty in
-              let is_omitted2, var2 = recognize_special_bound ast t2 ty in
-              let loc = t.loc in
-              let res =
-                match is_omitted1, is_omitted2 with
-                | true, true ->
-                    (* This case occurs when the two bounds are infinity. *)
-                    Ast.true_ ~loc ()
-                | true, false ->
-                    inequality ~strict:b2 ~lower:false ~loc t2 t
-                | false, true ->
-                    inequality ~strict:b1 ~lower:true ~loc t1 t
-                | false, false ->
-                    let i1 = inequality ~strict:b1 ~lower:true ~loc t1 t in
-                    let i2 = inequality ~strict:b2 ~lower:false ~loc t2 t in
-                    Ast.and_ ~loc [i1; i2]
-              in
-              let res =
-                match var1 with
-                | Some v -> Ast.exists ~loc [v] res
-                | None -> res
-              in
-              match var2 with
-              | Some v -> Ast.exists [v] res |> Type.parse_term env
-              | None -> Type.parse_term env res
+      (* Mutli-triggers *)
+      | Type.Builtin Ast.Multi_trigger ->
+        Type.builtin_term (fun _ast l ->
+            let l = List.map (Type.parse_term env) l in
+            T.multi_trigger l
           )
 
+      (* Semantic triggers
+         Note: In_interval is treated by the arithmetic theory for ae. *)
       | Type.Builtin Ast.Maps_to ->
-        Type.builtin_term (
-          fun ast args ->
-            begin match args with
-              | [var; t] ->
-                let t = Type.parse_term env t in
-                begin match var with
-                  | { Ast.term = Ast.Symbol sym; _ }
-                  | { Ast.term =
-                        Ast.App ({ Ast.term = Ast.Symbol sym; _ }, []); _
-                    } ->
-                    begin
-                      match Type.find_bound env sym with
-                      | `Term_var v -> T.maps_to v t
-                      | _ -> Type._error env (Ast ast) (Type.Cannot_find (sym, ""))
-                    end
-                  | _ -> Type._error env (Ast ast) (Type.Expected ("Variable name", None))
-                end
-              | l -> Type._error env (Ast ast) (Type.Bad_op_arity (s, [2], List.length l))
-            end
-        )
+        Type.builtin_term (Base.make_op2 (module Type) env s (parse_maps_to env))
 
       | _ -> `Not_found
 
@@ -638,7 +597,8 @@ module Smtlib2 = struct
         Type.builtin_tags (Base.make_op1 (module Type) env s (fun _ t ->
             let l = extract_sexpr_list_from_sexpr env t in
             let l = List.map (parse_sexpr env) l in
-            [Type.Add (Tag.triggers, l)]
+            let t = T.multi_trigger l in
+            [Type.Add (Tag.triggers, t)]
           ))
 
       (* Rewrite rules *)
