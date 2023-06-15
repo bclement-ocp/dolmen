@@ -892,7 +892,7 @@ module Term : sig
     (** Type coercion. *)
 
     val multi_trigger : int -> t
-    (** Mutli_triggers, indexed by the number of triggers. *)
+    (** Multi_triggers, indexed by the number of triggers. *)
 
     val semantic_trigger : t
     (** Semantic_triggers. *)

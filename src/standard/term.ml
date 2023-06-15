@@ -48,7 +48,7 @@ type builtin =
   | Record_with
   | Record_access       (* record operations *)
 
-  | Multi_trigger       (* mutli-triggers *)
+  | Multi_trigger       (* multi-triggers *)
   | Maps_to
   | In_interval of bool * bool
   | Check | Cut         (* alt-ergo builtins *)

@@ -175,14 +175,11 @@ module type Ae_Base = sig
   val unit : t
   (** Unit type *)
 
-  type view = private [>
-    | `Int
-    | `Real
-  ]
-  (** Partial view for types. *)
+  val int : t
+  (** The type of integers *)
 
-  val view : t -> view
-  (** Partial view of a type. *)
+  val real : t
+  (** The type of reals *)
 
 end
 

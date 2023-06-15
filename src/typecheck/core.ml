@@ -13,8 +13,7 @@ module Ae = struct
                                       and type term := Type.T.t)
       (Ty : Dolmen.Intf.Ty.Ae_Base with type t = Type.Ty.t)
       (T : Dolmen.Intf.Term.Ae_Base with type t = Type.T.t
-                                     and type term_var := Type.T.Var.t
-                                ) = struct
+                                     and type term_var := Type.T.Var.t) = struct
 
     let mk_or a b = T._or [a; b]
     let mk_and a b = T._and [a; b]
@@ -31,12 +30,20 @@ module Ae = struct
       Ast.S.elements (Ast.free_ids ~test Ast.S.empty ast)
 
     let parse_trigger env ast =
-      let l =
-        List.map (fun qm_id ->
-          Ast.colon (Ast.const qm_id) (Ast.ty_real ())
-        ) (free_qm_ids ast)
-      in
+      let l = List.map Ast.const (free_qm_ids ast) in
       let t = Ast.exists l ast in
+      let var_infer = Type.var_infer env in
+      let env =
+        Type.with_var_infer env (
+          { var_infer with
+            infer_term_vars_in_binding_pos =
+              Wildcard (Any_base {
+                  allowed = [ Ty.int; Ty.real ];
+                  preferred = Ty.real;
+                })
+          }
+        )
+      in
       Type.parse_term env t
 
 
