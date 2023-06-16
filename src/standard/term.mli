@@ -124,7 +124,7 @@ type builtin =
   (** Record field access *)
 
   | Multi_trigger
-  (* Mutli-triggers *)
+  (* Multi-triggers *)
   | Maps_to
   (** Mapping; used in Alt-ergo triggers. *)
   | In_interval of bool * bool

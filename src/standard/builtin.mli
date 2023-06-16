@@ -108,7 +108,7 @@ type _ t +=
       allowed inside theories. *)
 
   | Semantic_trigger
-  (** [In_interval: 'a. 'a -> Prop]:
+  (** [Semantic_trigger: Prop -> Prop]:
       Denote that its argument is a semantic trigger
       (used only by Alt-ergo currently). *)
 
