@@ -46,7 +46,6 @@ module Ae = struct
       in
       Type.parse_term env t
 
-
     let parse_maps_to env ast (var, t) =
       let t = Type.parse_term env t in
       match var with
